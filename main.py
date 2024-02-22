@@ -1,6 +1,7 @@
 import requests, random, socket, webbrowser
 
 run = True
+choice = None
 
 def is_connect():
     try:
@@ -56,7 +57,10 @@ def view_links():
 
 while run:
     if is_connect() == True:
-        choice = input("What would you like to do? ")
+        try:
+            choice = input("What would you like to do? ")
+        except KeyboardInterrupt:
+            print("Click a second time")
         if choice == "Find links":
             main()
         elif choice == "Open links":
